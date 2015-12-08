@@ -3,6 +3,9 @@
 		"target": "ES6"
 	},
 	"files": [
-		"Main.new.js"
+		"Main.new.js",
+		"src/util.js",
+		"src/wikipage.js",
+		"src/wikiplus.js"
 	]
 }

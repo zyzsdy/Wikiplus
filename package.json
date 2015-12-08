@@ -1,8 +1,8 @@
 {
-  "name": "Wikiplus",
-  "version": "2.0.1",
+  "name": "Wikiplus-dev",
+  "version": "2.1.0",
   "homepage": "https://wikiplus-app.smartgslb.com/",
-  "description": "A front-end jQuery-based Mediawiki plugin.",
+  "description": "A front-end jQuery-based Mediawiki gadget. This is a dev branch for plugin system.",
   "keywords": [
     "Wikiplus",
     "Mediawiki"
@@ -25,6 +25,7 @@
     "grunt-babel": "^5.0.3",
     "grunt-contrib-uglify": "~0.2.1",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-concat": "~0.5.1",
     "load-grunt-tasks": "^3.3.0"
   }
 }

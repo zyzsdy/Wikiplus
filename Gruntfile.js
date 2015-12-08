@@ -1,14 +1,25 @@
 module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks 
- 
+    
+    var src_list = [
+        'src/banner.js',  
+        'src/moenotification.js',
+        'src/intro.js',
+        'src/i18n.js',
+        'src/util.js',
+        'src/wikipage.js',
+        'src/wikiplus.js',
+        'src/outro.js'
+    ];
+    
     grunt.initConfig({
-        uglify: {
-            options: {
+        concat: {
+            options:{
+                separator: '\n',
             },
-            app_task: {
-                files: {
-                    './Main.min.js': './Main.js'
-                }
+            dist: {
+                src: src_list,
+                dest: './Main.new.js'
             }
         },
         babel: {
@@ -21,10 +32,19 @@ module.exports = function (grunt) {
                 }
             }
         },
+        uglify: {
+            options: {
+            },
+            app_task: {
+                files: {
+                    './Main.min.js': './Main.js'
+                }
+            }
+        },
         watch: {
             another: {
-                files: ['./Main.new.js'],
-                tasks: ['babel','uglify'],
+                files: ['./src/*.js'],
+                tasks: ['concat', 'babel', 'uglify'],
                 options: {
                     // Start another live reload server on port 1337
                     livereload: 1337
@@ -34,6 +54,7 @@ module.exports = function (grunt) {
     });
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['babel','uglify']);
+    grunt.registerTask('build', ['concat', 'babel','uglify']);
 }

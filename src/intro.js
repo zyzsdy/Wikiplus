@@ -1,0 +1,2 @@
+//Wikiplus Core Start
+$(function () {
